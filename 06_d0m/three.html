@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom manupulation / creation 3</title>
+</head>
+<body style="background-color:#212121; color:#fff">
+    
+</body>
+
+<script>
+   
+  const div=document.createElement('div');
+  console.log(div);
+  
+  div.className="box"
+  div.id=Math.round(Math.random()*10+1)
+
+  div.setAttribute('title','mytitle')
+  div.style.backgroundColor='red'
+  div.style.padding='5px'
+//   div.innerText='Ujjwal Gupta'
+
+const addText=document.createTextNode("Ujjwal Gupta")
+div.appendChild(addText)
+
+document.body.appendChild(div)
+</script>
+</html>
