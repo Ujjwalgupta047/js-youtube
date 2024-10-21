@@ -85,3 +85,80 @@ setInterval(function(){
 },1000)
 
 ```
+
+## project 4
+
+``` javascript
+
+let randomNum = Math.ceil(Math.random() * 100);
+let maxChance=10;
+const form = document.querySelector('.form');
+const userInput = document.querySelector('#guessField');
+const chanceLeft=document.querySelector('.lastResult')
+const feedbackPara=document.querySelector('.lowOrHi')
+const previousGuessesDisplay=document.querySelector('.guesses')
+console.log(randomNum);
+const prevarr=[]
+
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const num = Number(userInput.value); 
+  userInput.value = ''; 
+  validate(num);
+});
+
+
+const validate = (num) => {
+  if (isNaN(num)) {
+    console.log("Please enter a valid number");
+    return false
+  } else if (num < 1 || num > 100) {
+    console.log("Enter a number between 1 and 100");
+    return false;
+  } else {
+    prevarr.push(num)
+    displayPreviousGuesses();
+    isChance(num);
+  }
+};
+
+const displayPreviousGuesses = () => {
+  previousGuessesDisplay.textContent = prevarr.join(', ');
+};
+
+const isChance=(num)=>{
+    maxChance--;
+    chanceLeft.textContent=maxChance;
+    if(maxChance<=0){
+      console.log("You've crossed the guess limit! Restarting the game...")
+      restartGame()
+    }
+    else{
+      check(num)
+    }
+}
+
+const check = (num) => {
+  if (num === randomNum) {
+    feedbackPara.textContent="Wow! You guessed the right number! Game has been Restarted"
+     restartGame()
+  } else if (num < randomNum) {
+    feedbackPara.textContent='Try guessing a higher number'
+  } else {
+    feedbackPara.textContent='Try guessing a lower number'
+  }
+};
+
+const restartGame = () => {
+  prevarr.length=0
+  displayPreviousGuesses();
+  maxChance = 10; 
+  chanceLeft.textContent=maxChance;
+  randomNum = Math.ceil(Math.random() * 100);
+  userInput.value = ''; 
+  console.log("The game has restarted! Try guessing a new number.");
+  console.log(randomNum); 
+};
+
+```
