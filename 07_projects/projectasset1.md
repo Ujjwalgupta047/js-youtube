@@ -38,7 +38,8 @@ buttons.forEach((btn)=>{
 })
 ```
 
-##project 2
+## project 2
+
 ```javascript
 const form=document.querySelector('form')
 
@@ -74,7 +75,8 @@ form.addEventListener('submit',(event)=>{
     }
 })
 ```
-##project 3
+## project 3
+
 ``` javascript
 const clock=document.querySelector('#clock')
 
