@@ -164,3 +164,57 @@ const restartGame = () => {
 };
 
 ```
+
+## project 5
+
+```javascript
+
+const body=document.querySelector('body')
+const start=document.querySelector('#start')
+const stop=document.querySelector('#stop')
+
+const changeColor=()=>{
+  let r=Math.ceil(Math.random()*256)
+  let g=Math.ceil(Math.random()*256)
+  let b=Math.ceil(Math.random()*256)
+  body.style.backgroundColor=`rgb( ${r},${g},${b})`
+}
+
+let intervalId;
+
+start.addEventListener('click',()=>{
+  if(!intervalId){
+  intervalId=setInterval(changeColor,1000);
+} 
+})
+
+stop.addEventListener('click',()=>{
+  clearInterval(intervalId) 
+  intervalId=null
+})
+```
+
+## project 6
+
+``` javascript
+const insert=document.querySelector('#insert')
+
+window.addEventListener('keydown',(e)=>{
+  insert.innerHTML=`
+  <div>
+  <table>
+  <tr>
+    <th>key</th>
+    <th>keyCode</th>
+    <th>code</th>
+  </tr>
+  <tr>
+    <td>${e.key==' '?'space':e.key}</td>
+    <td>${e.keyCode}</td>  
+    <td>${e.code}</td>
+  </tr>
+</table>
+ </div>
+  `
+})
+```

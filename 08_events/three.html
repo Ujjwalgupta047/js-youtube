@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 2</title>
+</head>
+<body>
+    <h1>Chai aur javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+</body>
+<script>
+     
+     let change;
+
+     const  sayDate=(str)=>{
+          console.log(str,Date.now())
+     }
+   
+    
+    document.querySelector('#start').addEventListener('click',()=>{
+      change =setInterval(sayDate,1000,'hello')
+    })
+    
+    document.querySelector('#stop').addEventListener('click',()=>{
+             clearInterval(change)
+    })
+
+    
+</script>
+</html>
